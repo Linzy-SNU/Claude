@@ -1,0 +1,20 @@
+# Claude configuration files
+.claude.json
+.claude.json.backup
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# iCloud Drive references (not needed in git)
+~/Library/Mobile Documents/
+
+# Node modules (if any)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
