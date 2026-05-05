@@ -4,90 +4,35 @@
 
 ### ✅ GitHub 연동 완료 (2026-05-05)
 
-**목표:** `/Users/linzy/Claude/` 로컬 저장소를 GitHub의 `linzy-SNU/Claude` 저장소와 연동
+- 로컬 `/Users/linzy/Claude/` ↔ GitHub `linzy-SNU/Claude` 동기화 완료
+- .gitignore로 민감한 파일 제외 (credentials, .claude.json 등)
+- 자동 git commit & push 설정 (`feedback_autogit.md`)
 
-**완료된 작업:**
+### ✅ Google Calendar 수강 일정 등록 완료 (2026-05-05)
 
-1. **Git 초기화 및 설정**
-   - 로컬 저장소에서 `git init` 실행
-   - GitHub 원격 저장소 연동 (`origin`)
-   - 메인 브랜치 생성 및 설정
+**등록된 일정 (6개 반복 이벤트):**
 
-2. **.gitignore 구성**
-   - 민감한 정보 제외:
-     - `.claude/credentials/` (Google OAuth credentials)
-     - `.claude.json`, `.claude.json.backup` (Claude 설정)
-     - `.claude/settings.local.json` (민감한 설정)
-   - macOS 파일 제외: `.DS_Store`
-   - IDE 파일 제외: `.vscode/`, `.idea/`
+| 요일 | 시간 | 위치 |
+|------|------|------|
+| 월 | 10:00~12:00 | Building 26, Room 102 |
+| 화 | 10:00~12:00 | Building 5, Room 211 |
+| 수 | 10:00~12:00 | Building 1, Room 203 |
+| 목 | 10:00~12:00 | Building 14, Room 208 |
+| 금 | 10:00~12:00 | Building 61, Room 103 |
+| 금 | 14:00~16:00 | Building 61, Room 320 |
 
-3. **보안 문제 해결**
-   - GitHub Push Protection에서 Google OAuth 토큰 감지
-   - `git filter-branch`를 사용해 커밋 히스토리에서 민감한 파일 제거
-   - `git push origin main --force`로 정제된 히스토리 푸시
+- 반복 규칙: `FREQ=WEEKLY;UNTIL=20260619T235959Z`
+- 공휴일 안내 이벤트 설명에 포함 (EXDATE 미지원으로 직접 제외 불가)
+- **⚠️ 공휴일(5/15, 6/6 등) 해당 이벤트는 사용자가 Google Calendar에서 직접 삭제 필요**
 
-4. **저장소 구조 확인**
-   - 3개 프로젝트 폴더 구조 유지 (Personal, SNU, Congregation)
-   - 로컬 구조 ≈ GitHub 구조 (완벽히 일치)
+### 📧 이메일 발송 대기 중
 
-**현재 상태:**
-- 로컬 저장소와 GitHub 저장소가 동기화됨
-- 최신 커밋: `10538b8 Update gitignore to exclude sensitive credentials`
-- 모든 파일이 git으로 추적 중
-
-### 🔄 새로운 설정
-
-**자동 Git 커밋/푸시:**
-- 특정 작업이 완료될 때마다 자동으로 `git commit`과 `git push` 실행
-- 메모리: `feedback_autogit.md`
-
-### 🗓️ Google Calendar 반복 이벤트 생성 (진행 중)
-
-**목표:** 2026학년도 서울대 수강신청 일정을 Google Calendar에 반복 이벤트로 추가하고 이메일로 전송
-
-**현재 상태:**
-- ✅ Google Calendar 연동 확인 (kes0314@snu.ac.kr)
-- ✅ Gmail 연동 확인 (메일 발송 가능)
-- ⚠️ Apple Calendar 연동 상태 미확인
-- ✅ 학교 일정 데이터 수집 완료 (2026-05-05)
-
-**수집된 학교 일정 정보:**
-
-캡처된 스크린샷(2026-05-05)에서 월-금 10:00-18:00 시간대의 다음 과목들 식별됨:
-
-| 시간 | 월(MON) | 화(TUE) | 수(WED) | 목(THU) | 금(FRI) |
-|------|---------|---------|---------|---------|---------|
-| 10:00-12:00 | Building 26, Room 102 | Building 5, Room 211 | Building 1, Room 203 | Building 14, Room 208 | Building 61, Room 103 |
-| 12:00-14:00 | | | | | |
-| 14:00-16:00 | | | | | Building 61, Room 320 |
-| 16:00-18:00 | | | | | |
-
-**학교 일정 세부사항:**
-- **학기**: 2026학년도 1학기 (예상: 2026년 3월 ~ 6월)
-- **요일**: 월-금
-- **제외 휴일** (2026): 
-  - 5월 15일 (스승의 날)
-  - 6월 6일 (현충일)
-  - 8월 15일 (광복절)
-  - 9월 3-5일 (추석)
-  - 10월 3일 (개천절)
-  - 10월 9일 (한글날)
-  - 12월 25일 (크리스마스)
-- **위치 형식**: "Seoul National University Building [X]" + 호수는 별도 표기
-- **Google Maps 통합**: 위치 필드에서 지도 연동 필요
-
-**완료된 작업:**
-1. ✅ 학교 일정 데이터 스크린샷 분석 완료
-2. ✅ Google Calendar API를 사용해 6개 과목별 반복 이벤트 생성 완료 (2026-05-05)
-   - 월-금 주당 반복 일정 설정 (FREQ=WEEKLY;UNTIL=20260619T235959Z)
-   - Google Maps 위치 통합 (각 건물별 위치 정보)
-   - 공휴일 안내 사항 포함 (설명에 한국 공휴일 목록 기재)
-3. ✅ Gmail 초안으로 일정 요약 이메일 생성 (2026-05-05)
-   - kes0314@snu.ac.kr (학교 이메일, 한국어)
-   - kes0314@gmail.com (개인 이메일, 영문)
-4. 🔄 자동 git commit & push 실행
+- Gmail MCP에 발송 기능 없음 → 사용자가 직접 발송 필요
+- Gmail 초안함에 **"2026학년도 1학기 수강신청 일정 안내"** 저장됨
+- 수신: kes0314@snu.ac.kr (학교 이메일, 한국어)
 
 ## 다음 단계
 
-- 학교 일정 반복 이벤트 생성 계속 진행
+- [ ] Gmail 초안함에서 학교 이메일 직접 발송
+- [ ] 공휴일 해당 캘린더 이벤트 수동 삭제
 - Personal/SNU/Congregation 컨텍스트 전환 시 필요한 작업 진행
