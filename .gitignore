@@ -18,3 +18,7 @@ node_modules/
 .idea/
 *.swp
 *.swo
+
+# Sensitive credentials and tokens
+.claude/credentials/
+.claude/settings.local.json
