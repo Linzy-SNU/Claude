@@ -76,16 +76,16 @@
 - **위치 형식**: "Seoul National University Building [X]" + 호수는 별도 표기
 - **Google Maps 통합**: 위치 필드에서 지도 연동 필요
 
-**다음 작업 (우선순위 순):**
+**완료된 작업:**
 1. ✅ 학교 일정 데이터 스크린샷 분석 완료
-2. 🔄 Google Calendar API를 사용해 각 과목별 반복 이벤트 생성
-   - 각 요일/시간별 반복 일정 설정
-   - 한국 공휴일 EXDATE 규칙 적용
-   - Google Maps 위치 통합
-3. 학교 및 개인 이메일로 일정 요약 전송
-   - kes0314@snu.ac.kr (학교 이메일)
-   - kes0314@gmail.com (개인 이메일)
-4. 완료 후 자동 git commit & push 실행
+2. ✅ Google Calendar API를 사용해 6개 과목별 반복 이벤트 생성 완료 (2026-05-05)
+   - 월-금 주당 반복 일정 설정 (FREQ=WEEKLY;UNTIL=20260619T235959Z)
+   - Google Maps 위치 통합 (각 건물별 위치 정보)
+   - 공휴일 안내 사항 포함 (설명에 한국 공휴일 목록 기재)
+3. ✅ Gmail 초안으로 일정 요약 이메일 생성 (2026-05-05)
+   - kes0314@snu.ac.kr (학교 이메일, 한국어)
+   - kes0314@gmail.com (개인 이메일, 영문)
+4. 🔄 자동 git commit & push 실행
 
 ## 다음 단계
 
