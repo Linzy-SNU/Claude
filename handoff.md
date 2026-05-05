@@ -41,7 +41,28 @@
 - 특정 작업이 완료될 때마다 자동으로 `git commit`과 `git push` 실행
 - 메모리: `feedback_autogit.md`
 
+### 🗓️ Google Calendar 반복 이벤트 생성 (진행 중)
+
+**목표:** 학교 일정을 Google Calendar에 반복 이벤트로 추가하고 이메일로 전송
+
+**현재 상태:**
+- ✅ Google Calendar 연동 확인 (kes0314@snu.ac.kr)
+- ✅ Gmail 연동 확인 (메일 발송 가능)
+- ⚠️ Apple Calendar 연동 상태 미확인
+- ❌ 학교 일정 데이터 필요 (과목명, 요일, 시간)
+
+**필요한 정보:**
+- 과목명/수업명
+- 요일 (월, 화, 수, 목, 금 등)
+- 시간 (예: 09:00 ~ 10:30)
+
+**다음 작업:**
+1. 사용자로부터 학교 일정 세부 정보 수집
+2. Google Calendar에 반복 이벤트 생성
+3. 생성된 일정을 이메일로 전송 (kes0314@snu.ac.kr, kes0314@gmail.com)
+4. Apple Calendar 확인 (필요시)
+
 ## 다음 단계
 
-- 일반적인 작업 흐름에서 자동 git 커밋/푸시 적용
+- 학교 일정 반복 이벤트 생성 계속 진행
 - Personal/SNU/Congregation 컨텍스트 전환 시 필요한 작업 진행
