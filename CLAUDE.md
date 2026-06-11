@@ -47,12 +47,17 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 ```
 Claude/
 ├── CLAUDE.md          ← 전체 설정 메타파일
-├── skills/            ← 모든 컨텍스트에서 쓰는 공용 스킬 (예: notion-builder)
+├── .claude/skills/    ← 모든 스킬 저장 위치 (Claude Code가 /명령어로 인식하는 곳)
+│   ├── lecture-notes/   ← 다글로 수업 정리 → 노션 강의노트
+│   ├── notion-builder/  ← 노션에 페이지·DB 자동 생성
+│   └── schedule-event/  ← Google Calendar 일정 등록
 └── projects/
     ├── 01.Personal/meta.md
     ├── 02.SNU/meta.md
     └── 03.Congregation/meta.md
 ```
+
+**스킬은 반드시 `.claude/skills/스킬명/SKILL.md`에 만든다.** (다른 위치는 /명령어로 인식 안 됨)
 
 각 프로젝트 폴더 구조:
 ```
