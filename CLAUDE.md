@@ -47,6 +47,7 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 ```
 Claude/
 ├── CLAUDE.md          ← 전체 설정 메타파일
+├── skills/            ← 모든 컨텍스트에서 쓰는 공용 스킬 (예: notion-builder)
 └── projects/
     ├── 01.Personal/meta.md
     ├── 02.SNU/meta.md
