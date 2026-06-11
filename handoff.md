@@ -8,6 +8,18 @@
 - .gitignore로 민감한 파일 제외 (credentials, .claude.json 등)
 - 자동 git commit & push 설정 (`feedback_autogit.md`)
 
+### ✅ 휴대폰·아이패드 실시간 연동 (2026-06-11)
+
+- launchd 자동 동기화 추가: 맥북에서 5분마다 자동 커밋·푸시 (`scripts/auto-sync.sh`)
+- 설치 방법 및 사용법: `기기연동_가이드.md` 참고
+- **맥북에서 1회 설치 필요**: `zsh scripts/install-autosync.sh`
+
+### ✅ 수업정리 스킬 추가 (2026-06-11)
+
+- 다글로 녹취록 붙여넣기 → 학습 노트로 정리 → 노션 과목별 "강의노트" DB에 저장
+- 스킬 위치: `projects/02.SNU/skills/lecture-notes/SKILL.md`
+- 노션 구조: `1-1 SNU` → `강의` DB → 과목 페이지 → `강의노트` DB (이름/날짜)
+
 ### 🔄 새로운 설정 / 메모리
 
 - **자동 git commit & push** (`feedback_autogit.md`)
