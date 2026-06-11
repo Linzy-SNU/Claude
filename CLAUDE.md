@@ -2,7 +2,8 @@
 
 ## 기본 정보
 - 사용자: 김은수 (Linzy)
-- 소속: 서울대학교 인문대학 영어영문학과 26학번
+- 소속: 서울대학교 인문대학 영어영문학과 26학번 (1학년)
+- 수강: 영문학 전공 수업 + 코딩 수업(컴퓨팅 기초) 병행
 - 이메일: kes0314@snu.ac.kr
 - 작업 디렉토리: `/Users/linzy/Claude/`
 
@@ -30,6 +31,12 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 - **기존 파일**: 이름 및 위치 변경 금지
 
 ## 규칙 및 선호사항
+- **세션 시작 시 항상 `git pull`**: 모든 세션은 작업을 시작하기 전에 먼저 `git pull origin main`으로 최신 상태를 받아온다.
+- **세션 마지막에 항상 자동 `git commit` & `git push`**: 작업이 끝나면 묻지 말고 자동으로 커밋하고 푸시해서 GitHub에 반영한다. (푸시까지 해야 다른 기기에서 보임)
+- **작업 브랜치에 푸시한 경우 PR 생성 후 자동 머지**: 스킬 실행 등 작업이 끝나면 묻지 말고 PR을 만들어 바로 main에 머지까지 완료한다.
+- **항상 클라우드 세션 사용**: 새 세션은 항상 Claude Code 클라우드(웹) 방식으로 연다. GitHub 저장소(`linzy-SNU/Claude`) 기반으로 작업하므로 맥북·아이패드·휴대폰 어디서든 같은 세션과 최신 파일을 실시간으로 이어서 쓸 수 있다.
+- 클라우드 세션에서 작업한 내용은 반드시 커밋·푸시해서 GitHub에 반영한다 (푸시해야 다른 기기에서 보임)
+- 맥북 로컬 폴더는 자동 동기화(launchd, `scripts/auto-sync.sh`)가 5분마다 GitHub과 맞춰준다 — `기기연동_가이드.md` 참고
 - 항상 `/Users/linzy/Claude/` 를 루트로 실행
 - "개인으로 들어가자" → Personal 컨텍스트로 전환
 - "학교로 들어가자" → SNU 컨텍스트로 전환
@@ -41,11 +48,17 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 ```
 Claude/
 ├── CLAUDE.md          ← 전체 설정 메타파일
+├── .claude/skills/    ← 모든 스킬 저장 위치 (Claude Code가 /명령어로 인식하는 곳)
+│   ├── lecture-notes/   ← 다글로 수업 정리 → 노션 강의노트
+│   ├── notion-builder/  ← 노션에 페이지·DB 자동 생성
+│   └── schedule-event/  ← Google Calendar 일정 등록
 └── projects/
     ├── 01.Personal/meta.md
     ├── 02.SNU/meta.md
     └── 03.Congregation/meta.md
 ```
+
+**스킬은 반드시 `.claude/skills/스킬명/SKILL.md`에 만든다.** (다른 위치는 /명령어로 인식 안 됨)
 
 각 프로젝트 폴더 구조:
 ```
