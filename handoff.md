@@ -8,6 +8,12 @@
 - .gitignore로 민감한 파일 제외 (credentials, .claude.json 등)
 - 자동 git commit & push 설정 (`feedback_autogit.md`)
 
+### ✅ 휴대폰·아이패드 실시간 연동 (2026-06-11)
+
+- launchd 자동 동기화 추가: 맥북에서 5분마다 자동 커밋·푸시 (`scripts/auto-sync.sh`)
+- 설치 방법 및 사용법: `기기연동_가이드.md` 참고
+- **맥북에서 1회 설치 필요**: `zsh scripts/install-autosync.sh`
+
 ### 🔄 새로운 설정 / 메모리
 
 - **자동 git commit & push** (`feedback_autogit.md`)
