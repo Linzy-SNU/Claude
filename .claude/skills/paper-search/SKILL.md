@@ -22,9 +22,21 @@ description: 영문학 등 학술 논문·비평을 검색해주는 스킬. "논
 
 ### 2단계: 검색
 
-`WebSearch` / `WebFetch`로 다음 소스를 우선 검색:
-- **영어 자료**: Google Scholar, JSTOR, Project MUSE, Academia.edu
-- **한국어 자료**: DBpia, RISS, KCI
+**1순위 — 학술 API 직접 호출** (`WebFetch` 사용, 무료·키 불필요, 결과가 가장 정확):
+
+| API | 호출 예시 | 특징 |
+|-----|----------|------|
+| OpenAlex | `https://api.openalex.org/works?search=검색어&per-page=10` | 인문학 포함 전 분야, 인용수·무료PDF 링크 제공 |
+| Semantic Scholar | `https://api.semanticscholar.org/graph/v1/paper/search?query=검색어&fields=title,authors,year,abstract,externalIds,openAccessPdf` | 초록 포함 |
+| CrossRef | `https://api.crossref.org/works?query=검색어&rows=10` | 서지정보·DOI 정확 |
+
+- 검색어는 **영어로** 넣는다 (예: "Shakespeare sonnet temporality")
+- 결과의 `openAccessPdf` / `open_access` 필드로 무료 PDF 여부 확인
+
+**2순위 — 웹 검색 보완** (`WebSearch`):
+- 한국어 자료: `site:dbpia.co.kr`, `site:riss.kr`, `site:kci.go.kr` 붙여서 검색
+- 영어 비평: Google Scholar, JSTOR, Project MUSE 결과 페이지
+
 - 무료 열람 가능 여부 표시. 유료 자료는 **서울대 도서관**(lib.snu.ac.kr) 교내 접속으로 볼 수 있다고 안내
 
 ### 3단계: 결과 정리
