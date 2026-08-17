@@ -24,6 +24,7 @@
 | "이 구절 무슨 뜻이야", "번역" | `translate` |
 | "노션에 정리해줘" | `notion-builder` |
 | "일정 등록해줘" | `schedule-event` |
+| **"문서로 만들어줘", "파일로 저장"** | `document-publish` |
 | Word / PDF / 슬라이드 | `docx` `pdf` `pptx` |
 
 ## 작업 규칙

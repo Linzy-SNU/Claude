@@ -28,6 +28,7 @@
 | "암기카드", "퀴즈" (학습용) | `flashcards` |
 | "번역해줘" | `translate` |
 | "문서 같이 쓰자", "기획서" | `doc-coauthoring` |
+| **"문서로 만들어줘", "파일로 저장"** | `document-publish` |
 | Word / 엑셀 / PDF / 슬라이드 | `docx` `xlsx` `pdf` `pptx` |
 | 웹사이트 조작·자동화 | `agent-browser` |
 

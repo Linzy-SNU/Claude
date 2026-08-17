@@ -36,6 +36,7 @@
 | "교환학생", "수학계획서", "추천서" | `exchange-prep` |
 | "일정 등록", "캘린더" | `schedule-event` |
 | "노션에 정리해줘" | `notion-builder` |
+| **"문서로 만들어줘", "파일로 저장"** | `document-publish` |
 | 슬라이드 / Word / 엑셀 / PDF | `pptx` `docx` `xlsx` `pdf` |
 
 ### 연계 흐름
