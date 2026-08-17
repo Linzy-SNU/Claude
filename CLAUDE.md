@@ -34,7 +34,7 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 - **요약/정리 시 원본 보존 (절대 규칙)**: 수업 정리·문서 요약 등 어떤 요약 작업에서도 사용자가 제공한 원본 텍스트·파일은 절대 삭제·수정하지 않는다. 요약본은 별도로 만들고, 원본 전체는 수정 없이 그대로 함께 보존한다 (파일이면 맨 아래 "원문 전체" 섹션, 노션이면 토글/하단 섹션).
 - **세션 시작 시 항상 `git pull`**: 모든 세션은 작업을 시작하기 전에 먼저 `git pull origin main`으로 최신 상태를 받아온다.
 - **세션 마지막에 항상 자동 `git commit` & `git push`**: 작업이 끝나면 묻지 말고 자동으로 커밋하고 푸시해서 GitHub에 반영한다. (푸시까지 해야 다른 기기에서 보임)
-- 위 두 규칙은 훅으로도 강제된다 — `~/.claude/hooks/git-auto-sync.sh` (SessionStart→pull, Stop→commit+push). 어느 저장소에서든 동작하고, detached HEAD·진행 중인 merge·자격증명 의심 파일이 있으면 자동으로 건너뛴다. 로그: `~/Library/Logs/claude-git-hook.log`
+- 위 두 규칙은 훅으로도 강제된다 — `scripts/git-auto-sync.sh` (SessionStart→pull, Stop→commit+push). `.claude/settings.json`에 등록되어 있어 **맥북·아이패드·클라우드 세션 어디서든 자동 적용**된다. detached HEAD·진행 중인 merge·자격증명 의심 파일(.env, *.pem, *.key 등)이 있으면 자동으로 건너뛴다. 로그: `~/Library/Logs/claude-git-hook.log`
 - **작업 브랜치에 푸시한 경우 PR 생성 후 자동 머지**: 스킬 실행 등 작업이 끝나면 묻지 말고 PR을 만들어 바로 main에 머지까지 완료한다.
 - **항상 클라우드 세션 사용**: 새 세션은 항상 Claude Code 클라우드(웹) 방식으로 연다. GitHub 저장소(`linzy-SNU/Claude`) 기반으로 작업하므로 맥북·아이패드·휴대폰 어디서든 같은 세션과 최신 파일을 실시간으로 이어서 쓸 수 있다.
 - 클라우드 세션에서 작업한 내용은 반드시 커밋·푸시해서 GitHub에 반영한다 (푸시해야 다른 기기에서 보임)
