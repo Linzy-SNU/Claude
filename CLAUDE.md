@@ -33,6 +33,10 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 - **기존 파일**: 이름 및 위치 변경 금지
 
 ## 규칙 및 선호사항
+- **스킬 우선 (절대 규칙)**: 학교 관련 작업을 지시받으면 **즉흥적으로 처리하지 말고, 아래 스킬 표에서 해당 스킬을 먼저 찾아 그 스킬의 절차대로 수행한다.** 스킬이 있는데 안 쓰면 매번 품질이 달라진다.
+  - 맞는 스킬이 있으면 → `Skill` 도구로 호출해서 그 워크플로를 따른다
+  - 여러 개가 걸리면 → 순서대로 연계한다 (예: `paper-search` → `research-digest` → `essay-helper` → `citation-check`)
+  - 맞는 스킬이 없으면 → 그때만 직접 처리하고, **반복될 일이면 `skill-generator`로 스킬을 만들자고 제안**한다
 - **일반 눈높이로 대하지 않는다 (절대 규칙)**: 외고 전교권에서 수시로 서울대에 진학했고, 전국에서 한 해 9명 뽑는 학부 소속이다. 영어 학습 경력은 나보다 길다.
   - **영어에 관해서는 사용자가 위다.** 튜터가 아니라 **스파링 파트너**로 대한다. 어감·문체 판단이 갈리면 근거만 대고 **사용자 판단을 따른다**
   - 기초 문법·어휘·개념 설명으로 시간 쓰지 않는다. 모르는 것만 짚어 묻는다
@@ -60,15 +64,66 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 ```
 Claude/
 ├── CLAUDE.md          ← 전체 설정 메타파일
-├── .claude/skills/    ← 모든 스킬 저장 위치 (Claude Code가 /명령어로 인식하는 곳)
-│   ├── lecture-notes/   ← 다글로 수업 정리 → 노션 강의노트
-│   ├── notion-builder/  ← 노션에 페이지·DB 자동 생성
-│   └── schedule-event/  ← Google Calendar 일정 등록
+├── .claude/skills/    ← 모든 스킬 (Claude Code가 /명령어로 인식하는 곳)
 └── projects/
     ├── 01.Personal/meta.md
-    ├── 02.SNU/meta.md
+    ├── 02.SNU/meta.md          ← 학교
+    │   └── exchange/           ← 교환학생 준비 (README.md부터 읽을 것)
     └── 03.Congregation/meta.md
 ```
+
+## 🎯 스킬 목록 — 학교 일은 여기서 골라 쓴다
+
+**지시를 받으면 먼저 이 표에서 찾는다.** (위 "스킬 우선" 절대 규칙)
+
+### 읽기·수업
+| 상황 | 스킬 |
+|---|---|
+| 원서 읽는 중, 챕터·인물·어휘 정리 | `reading-companion` |
+| 시·구절 정밀 분석 (close reading) | `close-reading` |
+| 녹취록 → 강의노트 (노션 저장) | `lecture-notes` |
+| 시험 대비 암기카드·퀴즈 | `flashcards` |
+| 번역·해석 | `translate` |
+
+### 리서치
+| 상황 | 스킬 |
+|---|---|
+| 논문·비평 **찾기** | `paper-search` |
+| 찾은 논문 **읽고 소화·지형도** | `research-digest` |
+| 비평 이론 이해·작품 적용 | `critical-lens` |
+| 심층 반복 조사 | `recursive-research` |
+| 웹 기사 본문 추출 | `article-extractor` |
+| 유튜브 전사 → 노션 | `youtube-to-notion` |
+
+### 쓰기
+| 상황 | 스킬 |
+|---|---|
+| 에세이 (주제→논지→개요→초안→퇴고) | `essay-helper` |
+| 영문 다듬기 + **AI 문체 제거** | `academic-english-polish` |
+| MLA 인용·출처 검증 (제출 전) | `citation-check` |
+| 문서 공동 집필 | `doc-coauthoring` |
+
+### 발표·산출물
+| 상황 | 스킬 |
+|---|---|
+| 발표 대본·예상질문·시간배분 | `presentation-prep` |
+| 슬라이드 제작 | `pptx` |
+| Word 문서 | `docx` |
+| 엑셀·표 | `xlsx` |
+| PDF 처리 | `pdf` |
+
+### 관리·기타
+| 상황 | 스킬 |
+|---|---|
+| 교환학생 준비 (UBC) | `exchange-prep` |
+| 캘린더 일정 등록 | `schedule-event` |
+| 노션 페이지·DB 생성 | `notion-builder` |
+| 새 스킬 제작 | `skill-generator` |
+
+**자주 쓰는 연계 흐름**
+- 에세이: `paper-search` → `research-digest` → `critical-lens` → `essay-helper` → `academic-english-polish` → `citation-check` → `docx`
+- 발표: `research-digest` → `presentation-prep` → `pptx`
+- 수업: `lecture-notes` → `flashcards`
 
 **스킬은 반드시 `.claude/skills/스킬명/SKILL.md`에 만든다.** (다른 위치는 /명령어로 인식 안 됨)
 
