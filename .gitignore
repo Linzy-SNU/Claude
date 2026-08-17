@@ -22,3 +22,6 @@ node_modules/
 # Sensitive credentials and tokens
 .claude/credentials/
 .claude/settings.local.json
+
+# Local git worktrees (cloud session artifacts, not part of repo history)
+.claude/worktrees/
