@@ -8,11 +8,13 @@
 - .gitignore로 민감한 파일 제외 (credentials, .claude.json 등)
 - 자동 git commit & push 설정 (`feedback_autogit.md`)
 
-### ✅ 휴대폰·아이패드 실시간 연동 (2026-06-11)
+### ✅ 휴대폰·아이패드 실시간 연동 (2026-06-11, 2026-08-17 개편)
 
-- launchd 자동 동기화 추가: 맥북에서 5분마다 자동 커밋·푸시 (`scripts/auto-sync.sh`)
-- 설치 방법 및 사용법: `기기연동_가이드.md` 참고
-- **맥북에서 1회 설치 필요**: `zsh scripts/install-autosync.sh`
+- git 자동 동기화 훅: 세션 시작 시 `git pull`, 작업 종료 시 자동 커밋·푸시
+- 스크립트 `scripts/git-auto-sync.sh` + 등록 `.claude/settings.json` — 둘 다 저장소에 있어
+  **모든 기기·클라우드 세션에 자동 적용** (설치 불필요)
+- 사용법: `기기연동_가이드.md` 참고
+- 2026-08-17: 기존 launchd 방식(`scripts/auto-sync.sh`)은 설치된 적이 없어 제거하고 훅으로 대체
 
 ### ✅ 수업정리 스킬 추가 (2026-06-11)
 

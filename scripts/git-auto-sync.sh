@@ -22,8 +22,9 @@ git rev-parse --is-inside-work-tree >/dev/null 2>&1 || skip "git 저장소 아�
 cd "$(git rev-parse --show-toplevel)" || skip "toplevel 이동 실패"
 repo=$(basename "$PWD")
 
-# 중복 실행 방지 — 사용자 설정과 프로젝트 설정 양쪽에 훅이 걸려 있으면
-# 같은 이벤트로 두 번 호출된다. 10초 안에 같은 저장소·모드가 이미 돌았으면 건너뛴다.
+# 동시 실행 방지 — Stop 훅은 백그라운드(async)로 매 턴 끝에 돌기 때문에
+# 턴이 빠르게 이어지면 git 작업이 겹칠 수 있다.
+# 10초 안에 같은 저장소·모드가 이미 돌았으면 건너뛴다.
 stamp="${TMPDIR:-/tmp}/claude-git-hook.$(printf '%s' "$PWD" | cksum | cut -d' ' -f1).$MODE"
 now=$(date +%s)
 if [ -f "$stamp" ] && [ $((now - $(cat "$stamp" 2>/dev/null || echo 0))) -lt 10 ]; then
