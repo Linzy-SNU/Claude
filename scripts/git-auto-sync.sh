@@ -4,6 +4,10 @@
 #   sync  — 작업 종료 시 자동 커밋 + 푸시 (Stop)
 #
 # 어느 git 저장소에서든 동작한다. 안전하지 않은 상황에서는 조용히 건너뛴다.
+#
+# 주의: .claude/settings.json의 Stop 훅에 "async": true 를 넣지 말 것.
+#   백그라운드로 돌리면 세션이 끝나면서 훅이 실행되기 전에 죽는다.
+#   (2026-08-17 실제 확인 — async였을 때 커밋·푸시가 아예 실행되지 않았음)
 
 MODE="${1:-sync}"
 LOG="$HOME/Library/Logs/claude-git-hook.log"
