@@ -8,6 +8,8 @@
 # 주의: .claude/settings.json의 Stop 훅에 "async": true 를 넣지 말 것.
 #   백그라운드로 돌리면 세션이 끝나면서 훅이 실행되기 전에 죽는다.
 #   (2026-08-17 실제 확인 — async였을 때 커밋·푸시가 아예 실행되지 않았음)
+#   지연이 걱정되면 훅을 async로 만들지 말고, 아래 푸시처럼 스크립트 안에서
+#   개별 작업을 setsid로 떼어내라. 커밋은 반드시 동기로 남겨둘 것.
 
 MODE="${1:-sync}"
 LOG="$HOME/Library/Logs/claude-git-hook.log"
@@ -93,17 +95,21 @@ Claude Code 세션 종료 시 자동 커밋 ($(date '+%Y-%m-%d %H:%M'))" >>"$LOG
     && log "커밋 완료: $summary"
 fi
 
-# 푸시: 업스트림이 있고 보낼 커밋이 있을 때만
+# 푸시: 업스트림이 있고 보낼 커밋이 있을 때만.
+# 네트워크 왕복(~0.5초)이 턴 종료를 붙잡지 않도록 완전히 분리된 세션으로 띄운다.
+# 훅의 "async": true 와는 다르다 — 그건 세션이 끝나면서 죽지만(2026-08-17 확인),
+# 이건 setsid로 부모에서 떨어져 나가므로 세션이 끝나도 끝까지 실행된다.
+# 혹시 푸시를 놓쳐도 커밋은 남아 있고, 다음 세션의 pull/sync가 자동으로 밀어준다.
 if git rev-parse --abbrev-ref '@{u}' >/dev/null 2>&1; then
   ahead=$(git rev-list --count '@{u}..HEAD' 2>/dev/null || echo 0)
   if [ "$ahead" -gt 0 ]; then
-    if git push >>"$LOG" 2>&1; then
-      log "푸시 완료: $ahead개 커밋 → $branch"
-      printf '{"systemMessage":"%s: 자동 커밋·푸시 완료 — %s개 커밋 → origin/%s"}\n' "$repo" "$ahead" "$branch"
-    else
-      log "푸시 실패 — 나중에 재시도 필요"
-      printf '{"systemMessage":"%s: 커밋은 됐지만 푸시 실패 — 네트워크나 권한을 확인하세요."}\n' "$repo"
-    fi
+    python3 -c 'import subprocess,sys
+log = open(sys.argv[2], "a")
+subprocess.Popen(["git", "push"], cwd=sys.argv[1],
+                 stdout=log, stderr=subprocess.STDOUT,
+                 start_new_session=True)' "$PWD" "$LOG" 2>>"$LOG" \
+      && log "푸시 시작(백그라운드): $ahead개 커밋 → $branch" \
+      || { log "백그라운드 띄우기 실패 — 동기 푸시로 대체"; git push >>"$LOG" 2>&1; }
   else
     log "푸시할 커밋 없음"
   fi
