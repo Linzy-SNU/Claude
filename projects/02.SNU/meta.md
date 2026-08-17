@@ -13,7 +13,7 @@ category: SNU
 - 이메일: kes0314@snu.ac.kr
 
 ## 산출물 저장 위치
-`~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/02.SNU/`
+`~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/02.SNU/`
 
 ## 진행 중인 작업
 - 2026학년도 1학기 수강 일정 관리

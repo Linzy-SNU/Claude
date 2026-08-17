@@ -13,13 +13,13 @@
 Claude Code 작업을 위한 메인 작업 공간입니다.
 
 ## 산출물 저장 위치
-iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다.
+iCloud Drive의 `05.Claude_Output/` 폴더에 카테고리별로 저장합니다.
 
 | 카테고리 | 경로 |
 |---------|------|
-| Personal | `~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/01.Personal/` |
-| SNU | `~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/02.SNU/` |
-| Congregation | `~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/03.Congregation/` |
+| Personal | `~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/01.Personal/` |
+| SNU | `~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/02.SNU/` |
+| Congregation | `~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/03.Congregation/` |
 
 ### 서브폴더 구조
 | 카테고리 | 서브폴더 |
@@ -33,7 +33,14 @@ iCloud Drive의 `04.Claude_Output/` 폴더에 카테고리별로 저장합니다
 - **기존 파일**: 이름 및 위치 변경 금지
 
 ## 규칙 및 선호사항
-- **스킬 우선 (절대 규칙)**: 학교 관련 작업을 지시받으면 **즉흥적으로 처리하지 말고, 아래 스킬 표에서 해당 스킬을 먼저 찾아 그 스킬의 절차대로 수행한다.** 스킬이 있는데 안 쓰면 매번 품질이 달라진다.
+- **작업 방식 — 리서치 → 계획 → 제안 → 승인 (절대 규칙)**: 사용자가 무언가를 요청하면 **바로 실행하지 않는다.** 아래 순서를 지킨다.
+  1. **벤치마킹·리서치 최소 3~5건** — 실제 사례·문서·자료를 찾는다. **내 머릿속 의견만으로 답하지 않는다.** 출처를 남긴다
+  2. **근거 기반 계획** — 찾은 내용을 근거로 계획을 세운다. 어떤 자료의 어떤 점을 반영했는지 밝힌다
+  3. **제안** — 선택지와 트레이드오프를 함께 제시한다
+  4. **승인 대기** — 사용자가 승인한 뒤에 실행한다
+  - 예외: 단순 조회·읽기, 명백한 오류 수정, 사용자가 "바로 해"라고 한 경우
+  - 리서치 결과가 빈약하면 그렇다고 말한다. 없는 근거를 지어내 계획을 채우지 않는다
+- **스킬 우선 (절대 규칙)**: **모든 작업**(학교·리서치·논문·과제·자기계발·회중 등 전부)에서, 지시를 받으면 **즉흥적으로 처리하지 말고 아래 스킬 표에서 해당 스킬을 먼저 찾아 그 스킬의 절차대로 수행한다.** 스킬이 있는데 안 쓰면 매번 품질이 달라진다.
   - 맞는 스킬이 있으면 → `Skill` 도구로 호출해서 그 워크플로를 따른다
   - 여러 개가 걸리면 → 순서대로 연계한다 (예: `paper-search` → `research-digest` → `essay-helper` → `citation-check`)
   - 맞는 스킬이 없으면 → 그때만 직접 처리하고, **반복될 일이면 `skill-generator`로 스킬을 만들자고 제안**한다

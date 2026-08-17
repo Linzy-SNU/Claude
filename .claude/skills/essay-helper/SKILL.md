@@ -55,7 +55,7 @@ V. Conclusion — thesis 재진술 + 의의
 - `docx` 스킬로 MLA 형식 Word 파일 생성 (헤더, 더블스페이스, Works Cited 포함)
 - 파일명: `에세이제목_YYYY-MM-DD.docx`
 - 클라우드 세션: 파일을 사용자에게 전송 + `projects/02.SNU/essays/`에 백업 후 자동 커밋·푸시·머지
-- 맥북 세션: iCloud `04.Claude_Output/02.SNU/Essays/`에 저장
+- 맥북 세션: iCloud `05.Claude_Output/02.SNU/Essays/`에 저장
 
 ## 주의사항
 

@@ -44,7 +44,7 @@
 
 **산출물 (2026-05-05 완성):**
 - 파일: `오만과편견_8-15장_학습자료_2026-05-05.docx`
-- 위치: `~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/02.SNU/Research/`
+- 위치: `~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/02.SNU/Research/`
 - 형식: Word (.docx), 한국어 본문 + 영문 원문 인용
 - 구성:
   - 표지 + 8~15장 흐름 표 + 인물 등장 빈도 메모

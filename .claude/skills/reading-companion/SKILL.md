@@ -70,7 +70,7 @@ Bingley 자매는 그 행동을 두고 뒤에서 흉을 본다.
 
 - 노션에 저장: `notion-builder`로 해당 과목 페이지 아래 정리
 - 파일로: `docx` — `작품명_N-M장_정리_YYYY-MM-DD.docx`
-- iCloud `04.Claude_Output/02.SNU/Research/`
+- iCloud `05.Claude_Output/02.SNU/Research/`
 
 ## 스포일러 규칙
 

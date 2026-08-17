@@ -2,7 +2,7 @@
 
 ## 컨텍스트
 - 카테고리: SNU (서울대학교 인문대학 영어영문학과 26학번)
-- 산출물 저장: `~/Library/Mobile Documents/com~apple~CloudDocs/04.Claude_Output/02.SNU/`
+- 산출물 저장: `~/Library/Mobile Documents/com~apple~CloudDocs/05.Claude_Output/02.SNU/`
   (Essays/ · Reports/ · Presentations/ · Research/)
 
 ## ⚠️ 작업 시작 규칙 — 스킬 먼저
