@@ -57,12 +57,34 @@ def make_styles(font: str) -> dict:
     }
 
 
+# 한글 폰트(AppleGothic)에 없는 이모지는 네모(■)로 깨진다.
+# 폰트가 가진 기호나 글자로 바꿔준다. 여기 없는 이모지를 쓰면 깨지니 필요하면 추가할 것.
+EMOJI_MAP = {
+    "⚠️": "※", "⚠": "※",
+    "✅": "[O]", "❌": "[X]", "⬜": "[ ]", "🔲": "[ ]",
+    "⭐": "★", "🌟": "★",
+    "📌": "·", "📁": "·", "📚": "·", "📝": "·", "📧": "·", "📊": "·",
+    "🏛️": "", "🏠": "", "⛪": "", "🌏": "", "🧪": "", "🔗": "",
+    "🔴": "[!]", "🟡": "[~]", "🟢": "[O]", "🔵": "●", "🟣": "●",
+    "🟠": "●", "🟤": "●", "💡": "·", "🕳️": "·", "⚔️": "·", "🏷": "·",
+}
+
+
+def strip_emoji(text: str) -> str:
+    for k, v in EMOJI_MAP.items():
+        text = text.replace(k, v)
+    return text
+
+
 def inline(text: str) -> str:
     """마크다운 인라인 서식 → reportlab 마크업. 이스케이프를 먼저 한다."""
+    text = strip_emoji(text)
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
     text = re.sub(r"(?<!\*)\*([^*]+?)\*(?!\*)", r"<i>\1</i>", text)
-    text = re.sub(r"`(.+?)`", r"<font face='Courier'>\1</font>", text)
+    # 인라인 코드: Courier로 바꾸면 한글이 전부 깨진다(글리프 없음).
+    # 한글 폰트를 유지한 채 색으로만 구분한다.
+    text = re.sub(r"`(.+?)`", r"<font color='#B03030'>\1</font>", text)
     text = re.sub(r"\[(.+?)\]\((.+?)\)", r"\1", text)  # 링크는 텍스트만
     return text
 
