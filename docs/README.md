@@ -22,9 +22,13 @@ docs/
 
 ## 새 세션이 시작되면
 
-1. `docs/context/` 를 읽어 현재 상태를 파악한다
-2. 필요하면 `docs/decisions/` 에서 왜 그렇게 됐는지 확인한다
-3. 루트 `CLAUDE.md` 의 절대 규칙을 따른다
+1. 루트 **`AGENTS.md`** 의 규칙을 따른다 (`CLAUDE.md`는 이 파일을 가리키는 심볼릭 링크)
+2. `docs/context/` 를 읽어 현재 상태를 파악한다
+3. 필요하면 `docs/decisions/` 에서 왜 그렇게 됐는지 확인한다
+
+> `AGENTS.md` 맨 위에 "세션을 시작하면 `docs/context/`를 읽어라"가 명시돼 있다.
+> 그 지시가 자동 로드되는 파일에 있어야 이 폴더가 실제로 읽힌다.
+> 근거: `decisions/2026-08-18_AGENTS-md_전환.md`
 
 ## 기록하는 시점
 
